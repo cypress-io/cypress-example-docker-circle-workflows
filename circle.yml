@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
 
-  e2e:
+  test:
     <<: *defaults
     steps:
       - run:
@@ -30,7 +30,8 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build:
-      - e2e:
+      - build
+
+      - test:
           requires:
             - build
