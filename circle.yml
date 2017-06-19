@@ -30,7 +30,7 @@ workflows:
   version: 2
   "lint and test":
     jobs:
-      - build
+      - build:
       - e2e:
-        requires:
-          - build
+          requires:
+            - build
