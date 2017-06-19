@@ -18,10 +18,13 @@ jobs:
           root: /home/person/app
           paths:
             - cypress
+            - index.html
 
   test:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: /home/person/app
       - run:
           name: Running E2E tests
           command: cypress run --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
