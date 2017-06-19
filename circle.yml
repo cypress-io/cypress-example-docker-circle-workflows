@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  test:
+  build:
     docker:
       # the Docker image with Cypress preinstalled
       - image: cypress/internal:cy-0.19.2
@@ -23,4 +23,4 @@ workflows:
   version: 2
   "lint and test":
     jobs:
-      - test
+      - build
