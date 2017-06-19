@@ -15,11 +15,9 @@ jobs:
       - run: pwd
       - run: ls
       - persist_to_workspace:
-          root: .
+          root: cypress
           paths:
-            - cypress
-            - cypress.json
-            - index.html
+            - *
 
   test:
     <<: *defaults
