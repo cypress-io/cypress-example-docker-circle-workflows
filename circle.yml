@@ -12,6 +12,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+
+  e2e:
+    <<: *defaults
+    steps:
+      - checkout
       - run:
           name: Running E2E tests
           command: cypress run --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
@@ -27,3 +32,6 @@ workflows:
   "lint and test":
     jobs:
       - build
+      - e2e:
+        requires:
+          - build
