@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  test:
     docker:
       # the Docker image with Cypress preinstalled
       - image: cypress/internal:cy-0.19.2
@@ -18,3 +18,9 @@ jobs:
           path: cypress/videos
       - store_artifacts:
           path: cypress/screenshots
+
+workflows:
+  version: 2
+  "lint and test":
+    jobs:
+      - test
