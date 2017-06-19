@@ -14,9 +14,8 @@ jobs:
       - checkout
 
   e2e:
-    <<: *defaults
+    # <<: *defaults
     steps:
-      - checkout
       - run:
           name: Running E2E tests
           command: cypress run --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
