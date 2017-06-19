@@ -14,7 +14,7 @@ jobs:
       - checkout
 
   e2e:
-    # <<: *defaults
+    <<: *defaults
     steps:
       - run:
           name: Running E2E tests
