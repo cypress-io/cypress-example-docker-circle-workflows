@@ -20,14 +20,29 @@ jobs:
             - cypress
             - index.html
 
-  test:
+  testA:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /home/person/app
       - run:
           name: Running E2E tests
-          command: cypress run --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
+          command: cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
+      - store_test_results:
+          path: results
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
+
+  testB:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /home/person/app
+      - run:
+          name: Running E2E tests
+          command: cypress run --spec cypress/integration/b-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
       - store_test_results:
           path: results
       - store_artifacts:
@@ -40,7 +55,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-
-      - test:
+      - testA:
+          requires:
+            - build
+      - testB:
           requires:
             - build
