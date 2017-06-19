@@ -31,6 +31,6 @@ workflows:
   "lint and test":
     jobs:
       - build
-      # - e2e:
-      #   requires:
-      #     - build
+      - e2e:
+        requires:
+          - build
