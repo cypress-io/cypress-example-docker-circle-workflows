@@ -17,7 +17,7 @@ jobs:
       - persist_to_workspace:
           root: cypress
           paths:
-            - *
+            - integration
 
   test:
     <<: *defaults
