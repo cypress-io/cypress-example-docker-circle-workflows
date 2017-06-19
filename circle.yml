@@ -13,6 +13,7 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace:
+          root: .
           paths:
             - cypress
             - cypress.json
