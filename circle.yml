@@ -15,9 +15,9 @@ jobs:
       - run: pwd
       - run: ls
       - persist_to_workspace:
-          root: cypress
+          root: /home/person/app
           paths:
-            - integration
+            - cypress
 
   test:
     <<: *defaults
