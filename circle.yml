@@ -2,11 +2,10 @@ version: 2
 
 # common job parameters as a template
 defaults: &defaults
+  working_directory: ~/app
   docker:
-      # the Docker image with Cypress preinstalled
-      - image: cypress/internal:cy-0.19.2
-    working_directory: ~/app
-    parallelism: 1
+    # the Docker image with Cypress preinstalled
+    - image: cypress/internal:cy-0.19.2
 
 jobs:
   build:
