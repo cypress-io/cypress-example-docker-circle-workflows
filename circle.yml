@@ -13,8 +13,9 @@ jobs:
     steps:
       - checkout
       - run: pwd
+      - run: ls
       - persist_to_workspace:
-          root: ../app
+          root: .
           paths:
             - cypress
             - cypress.json
