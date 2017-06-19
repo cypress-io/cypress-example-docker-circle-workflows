@@ -12,6 +12,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - pwd
       - persist_to_workspace:
           root: .
           paths:
