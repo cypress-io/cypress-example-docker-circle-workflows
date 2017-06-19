@@ -12,6 +12,12 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - cypress
+            - cypress.json
+            - index.html
 
   test:
     <<: *defaults
