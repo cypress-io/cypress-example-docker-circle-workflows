@@ -28,7 +28,7 @@ jobs:
 
 workflows:
   version: 2
-  "lint and test":
+  build_and_test:
     jobs:
       - build:
       - e2e:
