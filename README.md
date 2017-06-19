@@ -13,6 +13,7 @@ code is setup among the jobs.
 
 Note: if you want to see "plain" CircleCI v2 example without workflows,
 check out [cypress-example-docker-circle][plain].
+
 [plain]: https://github.com/cypress-io/cypress-example-docker-circle
 
 ## Happy testing
