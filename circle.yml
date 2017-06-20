@@ -31,6 +31,7 @@ jobs:
       <<: *before-test
       # - attach_workspace:
       #     at: /home/person/app
+
       - run:
           name: Running E2E tests
           command: cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
