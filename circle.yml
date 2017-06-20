@@ -9,8 +9,9 @@ defaults: &defaults
 
 # common parameters for individual E2E test jobs
 before-test: &before-test
-  - attach_workspace:
-      at: /home/person/app
+  steps:
+    - attach_workspace:
+        at: /home/person/app
 
 jobs:
   build:
@@ -27,8 +28,8 @@ jobs:
 
   testA:
     <<: *defaults
+    <<: *before-test
     steps:
-      <<: *before-test
       # - attach_workspace:
       #     at: /home/person/app
 
