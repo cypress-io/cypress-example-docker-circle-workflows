@@ -13,6 +13,16 @@ before-test: &before-test
     - attach_workspace:
         at: /home/person/app
 
+# collect all artifacts for eaxh test job
+after-test: &after-test
+  steps:
+    - store_test_results:
+        path: results
+    - store_artifacts:
+        path: cypress/videos
+    - store_artifacts:
+        path: cypress/screenshots
+
 jobs:
   build:
     <<: *defaults
@@ -30,18 +40,11 @@ jobs:
     <<: *defaults
     <<: *before-test
     steps:
-      # - attach_workspace:
-      #     at: /home/person/app
-
       - run:
           name: Running E2E tests
           command: cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
-      - store_test_results:
-          path: results
-      - store_artifacts:
-          path: cypress/videos
-      - store_artifacts:
-          path: cypress/screenshots
+    <<: *after-test
+
 
   testB:
     <<: *defaults
