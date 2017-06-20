@@ -8,10 +8,10 @@ defaults: &defaults
     - image: cypress/internal:cy-0.19.2
 
 # common parameters for individual E2E test jobs
+# steps:
 before-test: &before-test
-  steps:
-    - attach_workspace:
-        at: /home/person/app
+  - attach_workspace:
+      at: /home/person/app
 
 # collect all artifacts for eaxh test job
 after-test: &after-test
@@ -38,12 +38,13 @@ jobs:
 
   testA:
     <<: *defaults
-    <<: *before-test
+    # <<: *before-test
     steps:
+      <<: *before-test
       - run:
           name: Running E2E tests
           command: cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
-    <<: *after-test
+    # <<: *after-test
 
 
   testB:
