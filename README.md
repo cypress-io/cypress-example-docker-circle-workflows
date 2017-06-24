@@ -1,4 +1,4 @@
-# cypress-example-docker-circle-workflows[![CircleCI](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows)
+# cypress-example-docker-circle-workflows [![CircleCI](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows)
 
 > Cypress + Docker + CircleCI Workflows = ❤️
 
