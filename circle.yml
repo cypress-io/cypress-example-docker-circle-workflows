@@ -6,6 +6,9 @@ defaults: &defaults
   docker:
     # the Docker image with Cypress preinstalled
     - image: cypress/internal:cy-0.19.2
+      environment:
+        ## this enables colors in the output
+        TERM: xterm
 
 jobs:
   build:

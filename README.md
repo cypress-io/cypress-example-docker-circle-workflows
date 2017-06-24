@@ -1,8 +1,6 @@
-# cypress-example-docker-circle-workflows
+# cypress-example-docker-circle-workflows[![CircleCI](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows)
 
 > Cypress + Docker + CircleCI Workflows = ❤️
-
-[![CircleCI](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows)
 
 You can run multiple Cypress tests in parallel after "building" the code
 using CircleCI [Workflows feature](https://circleci.com/docs/2.0/workflows/).
