@@ -9,7 +9,7 @@ using CircleCI [Workflows feature](https://circleci.com/docs/2.0/workflows/).
 See [circle.yml](circle.yml) in this repo how the dependencies and cached
 code is setup among the jobs.
 
-![CircleCI workflow](images/workflow.png)
+![CircleCI workflow](screenshots/workflow.png)
 
 Note: if you want to see "plain" CircleCI v2 example without workflows,
 check out [cypress-example-docker-circle][plain].
