@@ -4,8 +4,8 @@ version: 2
 defaults: &defaults
   working_directory: ~/app
   docker:
-    # the Docker image with Cypress preinstalled
-    - image: cypress/internal:cy-0.19.2
+    # the Docker image with Cypress dependencies
+    - image: cypress/base:6
       environment:
         ## this enables colors in the output
         TERM: xterm
@@ -17,9 +17,19 @@ jobs:
       - checkout
       - run: pwd
       - run: ls
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package.json" }}
+            - v1-npm-deps
+      - run: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - persist_to_workspace:
           root: /home/person/app
           paths:
+            - node_modules
             - cypress
             - index.html
 
@@ -30,7 +40,7 @@ jobs:
           at: /home/person/app
       - run:
           name: Running E2E tests A
-          command: cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
+          command: $(npm bin)/cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
       - store_test_results:
           path: results
       - store_artifacts:
@@ -46,7 +56,7 @@ jobs:
           at: /home/person/app
       - run:
           name: Running E2E tests B
-          command: cypress run --spec cypress/integration/b-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
+          command: $(npm bin)/cypress run --spec cypress/integration/b-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
       - store_test_results:
           path: results
       - store_artifacts:

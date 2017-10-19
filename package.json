@@ -1,0 +1,23 @@
+{
+  "name": "cypress-example-docker-circle-workflows",
+  "version": "1.0.0",
+  "description": "> Cypress + Docker + CircleCI Workflows = ❤️",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypress-io/cypress-example-docker-circle-workflows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cypress-io/cypress-example-docker-circle-workflows/issues"
+  },
+  "homepage": "https://github.com/cypress-io/cypress-example-docker-circle-workflows#readme",
+  "devDependencies": {
+    "cypress": "^1.0.2"
+  }
+}
