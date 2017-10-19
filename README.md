@@ -1,5 +1,7 @@
 # cypress-example-docker-circle-workflows [![CircleCI](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows.svg?style=svg)](https://circleci.com/gh/cypress-io/cypress-example-docker-circle-workflows)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cypress-io/cypress-example-docker-circle-workflows.svg)](https://greenkeeper.io/)
+
 > Cypress + Docker + CircleCI Workflows = ❤️
 
 You can run multiple Cypress tests in parallel after "building" the code
