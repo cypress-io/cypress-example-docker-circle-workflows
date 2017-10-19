@@ -27,7 +27,7 @@ jobs:
           paths:
             - node_modules
       - persist_to_workspace:
-          root: /home/person/app
+          root: /root/app
           paths:
             - node_modules
             - cypress
@@ -37,7 +37,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /home/person/app
+          at: /root/app
       - run:
           name: Running E2E tests A
           command: $(npm bin)/cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
@@ -53,7 +53,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /home/person/app
+          at: /root/app
       - run:
           name: Running E2E tests B
           command: $(npm bin)/cypress run --spec cypress/integration/b-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
