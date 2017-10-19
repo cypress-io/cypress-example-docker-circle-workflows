@@ -38,6 +38,8 @@ jobs:
     steps:
       - attach_workspace:
           at: /root/app
+      - run: ls -la cypress
+      - run: ls -la cypress/integration
       - run:
           name: Running E2E tests A
           command: $(npm bin)/cypress run --spec cypress/integration/a-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
