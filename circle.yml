@@ -31,6 +31,7 @@ jobs:
           paths:
             - node_modules
             - cypress
+            - cypress.json
             - index.html
 
   testA:
