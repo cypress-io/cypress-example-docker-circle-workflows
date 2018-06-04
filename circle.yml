@@ -31,7 +31,6 @@ jobs:
       - persist_to_workspace:
           root: /root/app
           paths:
-            - /root/.cache
             - node_modules
             - cypress
             - cypress.json
