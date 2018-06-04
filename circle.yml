@@ -58,6 +58,9 @@ jobs:
   testB:
     <<: *defaults
     steps:
+      - restore_cache:
+          keys:
+            - cache-dirs
       - attach_workspace:
           at: /root/app
       - run:
