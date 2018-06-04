@@ -26,8 +26,6 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - attach_workspace:
-          at: ~/.cache
       - persist_to_workspace:
           root: /root/app
           paths:
@@ -39,6 +37,9 @@ jobs:
   testA:
     <<: *defaults
     steps:
+      - restore_cache:
+          keys:
+            - cache-dirs
       - attach_workspace:
           at: /root/app
       - run: ls -la cypress
