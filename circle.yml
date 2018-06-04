@@ -26,6 +26,8 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
+      - attach_workspace:
+          at: ~/.cache
       - persist_to_workspace:
           root: /root/app
           paths:
