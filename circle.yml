@@ -5,7 +5,7 @@ defaults: &defaults
   working_directory: ~/app
   docker:
     # the Docker image with Cypress dependencies
-    - image: cypress/base:6
+    - image: cypress/base:8
       environment:
         ## this enables colors in the output
         TERM: xterm
@@ -19,13 +19,13 @@ jobs:
       - run: ls
       - restore_cache:
           keys:
-            - v1-npm-deps-{{ checksum "package.json" }}
-            - v1-npm-deps
-      - run: npm install
+            - cache-dirs
+      - run: npm ci
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package.json" }}
+          key: cache-dirs
           paths:
-            - node_modules
+            - ~/.npm
+            - ~/.cache
       - persist_to_workspace:
           root: /root/app
           paths:
