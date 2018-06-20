@@ -19,17 +19,21 @@ jobs:
       - run: ls
       - restore_cache:
           keys:
-          - v1-deps-{ .Branch }-{ checksum "package.json"}
-          - v1-deps-{ .Branch }
-          - v1-deps
+          - v1-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          - v1-deps-{{ .Branch }}-
+          - v1-deps-
       - run: npm ci
       - save_cache:
-          key: v1-deps-{ .Branch }-{ checksum "package.json"}
+          key: v1-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - ~/.npm
             - ~/.cache
       - persist_to_workspace:
-          root: /root/app
+          root: ~/
+          paths:
+            - .cache
+      - persist_to_workspace:
+          root: ~/app
           paths:
             - node_modules
             - cypress
@@ -39,13 +43,10 @@ jobs:
   testA:
     <<: *defaults
     steps:
-      - restore_cache:
-          keys:
-          - v1-deps-{ .Branch }-{ checksum "package.json"}
-          - v1-deps-{ .Branch }
-          - v1-deps
       - attach_workspace:
-          at: /root/app
+          at: ~/
+      - attach_workspace:
+          at: ~/app
       - run: ls -la cypress
       - run: ls -la cypress/integration
       - run:
@@ -62,13 +63,10 @@ jobs:
   testB:
     <<: *defaults
     steps:
-      - restore_cache:
-          keys:
-          - v1-deps-{ .Branch }-{ checksum "package.json"}
-          - v1-deps-{ .Branch }
-          - v1-deps
       - attach_workspace:
-          at: /root/app
+          at: ~/
+      - attach_workspace:
+          at: ~/app
       - run:
           name: Running E2E tests B
           command: $(npm bin)/cypress run --spec cypress/integration/b-spec.js --reporter junit --reporter-options "mochaFile=results/my-test-output.xml"
