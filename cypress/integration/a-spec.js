@@ -1,7 +1,6 @@
 describe('a-spec', () => {
   describe('page', () => {
     beforeEach(() => {
-      debugger
       cy.visit(Cypress.env('HOST') || 'index.html')
     })
 
